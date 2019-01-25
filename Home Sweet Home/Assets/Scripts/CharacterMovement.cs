@@ -1,18 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
-
 public class CharacterMovement : MonoBehaviour
 {
-
+    
     public float speed = 10f;
-
-    private Rigidbody rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
+    public float speedRotation = 4f;
+    
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -22,9 +14,18 @@ public class CharacterMovement : MonoBehaviour
         
         transform.Translate(movement * speed * Time.deltaTime);
 
-        //if(Input.GetKey(KeyCode.Space))
-        //{
 
-        //}
+        Plane playerPlane = new Plane(Vector3.up, transform.position);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        float hitdist = 0.0f;
+
+        if (playerPlane.Raycast(ray, out hitdist))
+        {
+            Vector3 targetPoint = ray.GetPoint(hitdist);
+            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speedRotation * Time.deltaTime);
+        }
+
     }
 }

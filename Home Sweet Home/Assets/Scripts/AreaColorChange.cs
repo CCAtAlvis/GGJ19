@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class AreaColorChange : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private Material mat;
+    void Start()
+    {
+        mat = GetComponent<Renderer>().material;
+
+    }
+	public void changeall()
+    {
+
+    }
 }
