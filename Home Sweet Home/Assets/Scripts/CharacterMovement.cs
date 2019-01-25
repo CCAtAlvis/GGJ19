@@ -5,12 +5,15 @@ public class CharacterMovement : MonoBehaviour
 {
 
     public float speed = 10f;
-
+	Animator ab;
     private Rigidbody rb;
+
+	public Animation CharAnim;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+		ab = GetComponent<Animator> ();
+		rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -22,9 +25,12 @@ public class CharacterMovement : MonoBehaviour
         
         transform.Translate(movement * speed * Time.deltaTime);
 
-        //if(Input.GetKey(KeyCode.Space))
-        //{
-
-        //}
+		if(Input.GetKey(KeyCode.W))
+        {
+			ab.SetInteger ("mov", 1);
+			print ("m here");
+        }
+		else
+			ab.SetInteger ("mov", 0);
     }
 }
