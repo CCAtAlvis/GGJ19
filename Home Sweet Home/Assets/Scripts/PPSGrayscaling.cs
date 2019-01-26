@@ -5,8 +5,6 @@ public class PPSGrayscaling : MonoBehaviour
 {
     public PostProcessingProfile profile;
 
-
-    // Update is called once per frame
     void Update()
     {
         ColorGradingModel.Settings cgs = profile.colorGrading.settings;
