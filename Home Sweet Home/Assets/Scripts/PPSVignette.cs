@@ -5,6 +5,7 @@ using System.Collections;
 public class PPSVignette : MonoBehaviour
 {
     public PostProcessingProfile profile;
+    public Memories m;
 
     private VignetteModel.Settings vgs;
 
@@ -36,6 +37,7 @@ public class PPSVignette : MonoBehaviour
             if (i>.9f)
             {
                 StartCoroutine("FadeOut");
+                m.FadeIn();
                 yield break;
             }
 

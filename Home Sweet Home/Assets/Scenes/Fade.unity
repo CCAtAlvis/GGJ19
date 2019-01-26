@@ -332,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &742506318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &885848377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -728,9 +728,9 @@ GameObject:
   - component: {fileID: 1990044794}
   - component: {fileID: 1990044793}
   - component: {fileID: 1990044787}
-  - component: {fileID: 1990044791}
   - component: {fileID: 1990044789}
   - component: {fileID: 1990044792}
+  - component: {fileID: 1990044791}
   m_Layer: 0
   m_Name: EventTrigger
   m_TagString: Untagged
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdde76cae6b21d46a6aae5f06c9fa5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeRate: 0
+  fadeRate: 3
   image: {fileID: 174552233}
 --- !u!114 &1990044792
 MonoBehaviour:
@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: a212067ceae6f184898d018ae025904e, type: 2}
+  m: {fileID: 1990044791}
 --- !u!23 &1990044793
 MeshRenderer:
   m_ObjectHideFlags: 0
