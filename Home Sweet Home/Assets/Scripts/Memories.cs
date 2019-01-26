@@ -8,7 +8,7 @@ public class Memories : MonoBehaviour
     public float fadeRate;
     public Image image;
     public PPSVignette vg;
-
+    public Region region;
 
     private float targetAlpha;
 
@@ -63,6 +63,13 @@ public class Memories : MonoBehaviour
     private void PlayMemory()
     {
         Debug.Log("playing memory");
+        Invoke("Exit", 2f);
+    }
+
+    private void Exit()
+    {
+        Debug.Log("exiting memory");
         FadeOut();
+        region.isGrayScale = false;
     }
 }
