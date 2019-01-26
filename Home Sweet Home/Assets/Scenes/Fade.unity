@@ -777,7 +777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventNo: 0
-  eventLength: 0
   gs: {fileID: 0}
   vg: {fileID: 1990044792}
 --- !u!4 &1990044790
@@ -804,8 +803,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdde76cae6b21d46a6aae5f06c9fa5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  memoryTimer: 0
   fadeRate: 1
   image: {fileID: 174552233}
+  vg: {fileID: 1990044792}
 --- !u!114 &1990044792
 MonoBehaviour:
   m_ObjectHideFlags: 0

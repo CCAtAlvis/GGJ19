@@ -19,6 +19,7 @@ public class PPSVignette : MonoBehaviour
     public void StartVignetteAnim()
     {
         //Debug.Log("anim");
+
         StartCoroutine("FadeIn");
     }
 
@@ -38,6 +39,7 @@ public class PPSVignette : MonoBehaviour
             {
                 StartCoroutine("FadeOut");
                 m.FadeIn();
+
                 yield break;
             }
 
