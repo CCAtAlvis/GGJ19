@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4692453523062882}
+  - component: {fileID: 65986233923125580}
   m_Layer: 0
   m_Name: building2_color
   m_TagString: Untagged
@@ -63,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956052875389004}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -8}
+  m_LocalPosition: {x: -25.509079, y: -2.0507187e-17, z: 27.706848}
   m_LocalScale: {x: 0.3, y: 0.4, z: 0.3}
   m_Children:
   - {fileID: 4054823066653032}
@@ -111,3 +112,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1840844156679568}
   m_Mesh: {fileID: 4300000, guid: 3cce7996d1f269141bef0d10e6d0882d, type: 3}
+--- !u!65 &65986233923125580
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956052875389004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.165045, y: 12.970218, z: 20.32409}
+  m_Center: {x: -0.039758682, y: 6.6411715, z: 0.03976345}
