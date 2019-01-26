@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f69031d0cc4b0754dad25124f86fddce
+guid: 7992f8bf9d477664f9a4e84b823a8b2f
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -59,7 +59,7 @@ ModelImporter:
     400052: //RootNode
     2100000: No Name
     4300000: untitled
-    7400000: Walking(1)
+    7400000: Pushing
     9500000: //RootNode
     11100000: //RootNode
     13700000: untitled
@@ -79,7 +79,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: 
+    motionNodeName: <Root Transform>
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -96,10 +96,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walking(1)
+      name: Pushing
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 52
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -107,7 +107,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -128,7 +128,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

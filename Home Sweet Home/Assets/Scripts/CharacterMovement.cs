@@ -2,13 +2,13 @@
 public class CharacterMovement : MonoBehaviour
 {
     
-    public float speed = 10f;
-    public float speedRotation = 4f;
+    public float speed = 0.5f;
+    public float speedRotation = 2f;
     
 	Animator ab;
     private Rigidbody rb;
 
-	public Animation CharAnim;
+
 
     void Start()
     {
@@ -18,10 +18,11 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+		float moveVertical = Input.GetAxis ("Vertical");
+			if ( moveVertical< 0)
+			moveVertical = 0;
+		
+		Vector3 movement = new Vector3(0, 0.0f, moveVertical);
         
         transform.Translate(movement * speed * Time.deltaTime);
 
@@ -37,10 +38,9 @@ public class CharacterMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speedRotation * Time.deltaTime);
         }
 
-		if(Input.GetKey(KeyCode.W))
+		if(Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow))
         {
 			ab.SetInteger ("mov", 1);
-			print ("m here");
         }
 		else
 			ab.SetInteger ("mov", 0);
