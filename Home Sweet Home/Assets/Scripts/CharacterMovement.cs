@@ -42,7 +42,13 @@ public class CharacterMovement : MonoBehaviour
                 ab.SetInteger("mov", 1);
             }
             else
+            {
                 ab.SetInteger("mov", 0);
+            }
+        }
+        else
+        {
+            ab.SetInteger("mov", 0);
         }
     }
 }

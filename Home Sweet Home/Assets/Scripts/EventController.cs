@@ -27,7 +27,12 @@ public class EventController : MonoBehaviour
         if (isTriggered)
             return;
 
+        //disable player movement
+        other.gameObject.GetComponent<CharacterMovement>().disableMovement = true;
+
+        //start Vignette animation
         vg.StartVignetteAnim();
+        
         isTriggered = true;
     }
 }
