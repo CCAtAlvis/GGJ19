@@ -187,13 +187,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 593965382}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 7.75, z: -8.04}
+  m_LocalRotation: {x: 0.079522364, y: -0, z: -0, w: 0.99683315}
+  m_LocalPosition: {x: -0.07, y: 1.2, z: -9.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.122001, y: 0, z: 0}
 --- !u!1 &1075823407 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1621035768653744, guid: ac05f6c9bea975c4497182f697e82a7f,
@@ -345,9 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c466bff2c879d5e43a2e5f05f479fc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  speedRotation: 4
-  CharAnim: {fileID: 0}
+  speed: 0.5
+  speedRotation: 2
 --- !u!1 &1460804468
 GameObject:
   m_ObjectHideFlags: 0
