@@ -27,13 +27,17 @@ public class Memories : MonoBehaviour
         Color currentColor = image.color;
         float alphaDiff = Mathf.Abs(currentColor.a - targetAlpha);
 
-        while (alphaDiff > 0.0001f)
+        while (alphaDiff > 0.001f)
         {
             currentColor.a = Mathf.Lerp(currentColor.a, targetAlpha, fadeRate * Time.deltaTime);
             image.color = currentColor;
 
-            if (alphaDiff < 0.0001f)
+            if (alphaDiff < 0.001f)
+            {
+                currentColor.a = 1f;
+                image.color = currentColor;
                 yield break;
+            }
 
             yield return null;
 
