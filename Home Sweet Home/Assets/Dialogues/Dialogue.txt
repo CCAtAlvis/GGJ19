@@ -1,24 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+/*Video Game Store*/
 
-public class Memories : MonoBehaviour
-{
-    public float memoryTimer;
-    public float fadeRate;
-    public Image image;
-    public PPSVignette vg;
-    public Region region;
-    public CharacterMovement player;
-
-    private float targetAlpha;
-
-    public Image photo;
-
-    public Text textBox;
-    private bool done = false;
-    string[] VidGame = new string[] {
-        /*Video Game Store*/
 "Wow! The new game cup head is here!",
         "I have wanted to play this since so long!",
         "Ummm...",
@@ -30,21 +11,17 @@ public class Memories : MonoBehaviour
 "They all ran away and we played the game together!",
 "I really miss my brother, he had to leave home for college\nNow he lives in a hostel",
 "Ever since these guys have started bullying me again..."
-};
 
-    string[] bakery = new string[] {
 /*Bakery*/
 
-"Haa smells real good",
+"Haa smells real good", 
 "Mom, that cake looks delicious! Please get it for me na mom...", "Please!",
 "Alright! Alright! But I have got a condition, you will help me at home. Will you?",
 "Ohkay okay! I promise!",
 "Are you sure?",
 "Yes yes please!!",
-"Okay lets take it..."
-};
+"Okay lets take it...",
 
-    string[] hotel = new string[] {
 /*Hotel*/
 
 "I am hungry. It has been quite long since I left home",
@@ -56,9 +33,7 @@ public class Memories : MonoBehaviour
 "'Dad : You must be tired as well dear... Lets eat at this restaurant'",
 "'Yeah! Hotel, I want juice, ice cream, noodles, soup!'",
 "Mom : Okay!You can have all these, lets first get in!"
-};
 
-    string[] hospital = new string[] {
 /*Hospital*/
 
 "Hospital usually relates people getting hurt, or falling ill",
@@ -72,9 +47,7 @@ public class Memories : MonoBehaviour
 "We got in the car, Dad was smiling",
 "I was confused",
 "Soon, Dad parked the car in front of the theatre,\nand I finally understood what's happening!",
-    };
 
-    string[] park = new string[] {
 /*Park*/
 
 "It's been quite long that I haven't been here",
@@ -87,9 +60,7 @@ public class Memories : MonoBehaviour
 "Life is boring",
 "I always feel that hopefully one day when I wake up,\neverything becomes as it was earlier",
 "Parents stop quarelling... Brother comes back home"
-    };
 
-    string[] bicycle = new string[] {
 /*Bicycle*/
 "Hey! This looks like!...",
 "Yeah! This is my bicycle!",
@@ -107,100 +78,4 @@ public class Memories : MonoBehaviour
 "Dad : Yes, but he feels bad that he doesn't have a bicycle",
 "Mom : Okay, we will get a good cycle for him",
 "And.. Next day this cycle was standing at the door",
-"I felt very happy"
-};
-    string[] goatText;
-
-    int currentlyDisplayingText = 0, time = 0;
-
-    public void Update()
-    {
-        if (Input.GetKeyDown("space"))
-            SkipToNextText();
-    }
-
-    public void FadeOut()
-    {
-        //Debug.Log("image fade out");
-        targetAlpha = 0.0f;
-        StartCoroutine(Anim(1));
-    }
-
-    public void FadeIn()
-    {
-        //Debug.Log("image fade in");
-        targetAlpha = 1.0f;
-        StartCoroutine(Anim());
-    }
-
-    IEnumerator Anim(int a = 0)
-    {
-        Color currentColor = image.color;
-        float alphaDiff = Mathf.Abs(currentColor.a - targetAlpha);
-
-        while (alphaDiff > 0.01f)
-        {
-            currentColor.a = Mathf.Lerp(currentColor.a, targetAlpha, fadeRate * Time.deltaTime);
-            image.color = currentColor;
-
-            currentColor = image.color;
-            alphaDiff = Mathf.Abs(currentColor.a - targetAlpha);
-
-            if (alphaDiff < 0.01f)
-            {
-                if (a==0)
-                {
-                    PlayMemory();
-                    currentColor.a = 1f;
-                }
-                else
-                {
-                    currentColor.a = 0;
-                    image.enabled = false;
-                }
-
-                image.color = currentColor;
-                yield break;
-            }
-
-            yield return null;
-        }
-    }
-
-    private void PlayMemory()
-    {
-        
-        StartCoroutine(AnimateText());
-        Invoke("Exit", 2f);
-    }
-    public void SkipToNextText()
-    {
-        StopAllCoroutines();
-        currentlyDisplayingText++;
-        if (currentlyDisplayingText >= goatText.Length)
-        {
-            done = true;
-        }
-        if (!done)
-            StartCoroutine(AnimateText());
-    }
-
-    IEnumerator AnimateText()
-    {
-
-        for (int i = 0; i < (goatText[currentlyDisplayingText].Length + 1); i++)
-        {
-            textBox.text = goatText[currentlyDisplayingText].Substring(0, i);
-            yield return new WaitForSeconds(.05f);
-        }
-    }
-
-    private void Exit()
-    {
-        //Debug.Log("exiting memory");
-        FadeOut();
-        region.isGrayScale = false;
-        region.Colorify();
-        player.disableMovement = false;
-    }
-}
+"I felt very happy";
