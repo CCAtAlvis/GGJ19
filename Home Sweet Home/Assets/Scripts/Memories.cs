@@ -13,11 +13,9 @@ public class Memories : MonoBehaviour
 
     private float targetAlpha;
 
-    public Image photo;
-
     public Text textBox;
     private bool done = false;
-    string[] VidGame = new string[] {
+    string[] goatText = new string[] {
         /*Video Game Store*/
 "Wow! The new game cup head is here!",
         "I have wanted to play this since so long!",
@@ -29,7 +27,8 @@ public class Memories : MonoBehaviour
 "He immediately rushed to save me and fought against them",
 "They all ran away and we played the game together!",
 "I really miss my brother, he had to leave home for college\nNow he lives in a hostel",
-"Ever since these guys have started bullying me again..."
+"Ever since these guys have started bullying me again...",
+""
 };
 
     string[] bakery = new string[] {
@@ -109,7 +108,7 @@ public class Memories : MonoBehaviour
 "And.. Next day this cycle was standing at the door",
 "I felt very happy"
 };
-    string[] goatText;
+//    string[] goatText ;
 
     int currentlyDisplayingText = 0, time = 0;
 
@@ -171,7 +170,7 @@ public class Memories : MonoBehaviour
     {
         
         StartCoroutine(AnimateText());
-        Invoke("Exit", 2f);
+        Invoke("Exit", memoryTimer);
     }
     public void SkipToNextText()
     {
@@ -192,6 +191,13 @@ public class Memories : MonoBehaviour
         {
             textBox.text = goatText[currentlyDisplayingText].Substring(0, i);
             yield return new WaitForSeconds(.05f);
+        }
+
+        currentlyDisplayingText++;
+        if (currentlyDisplayingText >= goatText.Length)
+        {
+            done = true;
+            yield break;
         }
     }
 
