@@ -9,6 +9,7 @@ public class Memories : MonoBehaviour
     public Image image;
     public PPSVignette vg;
     public Region region;
+    public CharacterMovement player;
 
     private float targetAlpha;
 
@@ -62,14 +63,16 @@ public class Memories : MonoBehaviour
 
     private void PlayMemory()
     {
-        Debug.Log("playing memory");
+        //Debug.Log("playing memory");
         Invoke("Exit", 2f);
     }
 
     private void Exit()
     {
-        Debug.Log("exiting memory");
+        //Debug.Log("exiting memory");
         FadeOut();
         region.isGrayScale = false;
+        region.Colorify();
+        player.disableMovement = false;
     }
 }

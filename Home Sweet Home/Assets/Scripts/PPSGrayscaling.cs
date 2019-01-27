@@ -9,7 +9,7 @@ public class PPSGrayscaling : MonoBehaviour
     {
         ColorGradingModel.Settings cgs = profile.colorGrading.settings;
         cgs.basic.saturation = Mathf.Abs(Mathf.Sin(Time.time));
-
+        
         profile.colorGrading.settings = cgs;
     }
 }
