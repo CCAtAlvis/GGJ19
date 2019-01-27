@@ -147,7 +147,7 @@ public class Memories : MonoBehaviour
             currentColor = image.color;
             alphaDiff = Mathf.Abs(currentColor.a - targetAlpha);
 
-            if (alphaDiff < 0.01f)
+            if (alphaDiff < 0.1f)
             {
                 if (a==0)
                 {
@@ -198,11 +198,15 @@ public class Memories : MonoBehaviour
     }
     public void SkipToNextText()
     {
+        if (done)
+            return;
+ 
         StopAllCoroutines();
         currentlyDisplayingText++;
         if (currentlyDisplayingText >= goatText.Length)
         {
             done = true;
+            currentlyDisplayingText = 0;
         }
         if (!done)
             StartCoroutine(AnimateText());
@@ -225,6 +229,7 @@ public class Memories : MonoBehaviour
         }
         else
         {
+            currentlyDisplayingText = 0;
             Exit();
             yield break;
         }
