@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: cc604cc58c50c7a4b8cf9020cb439b2a
+guid: b398b5f1a5fbc45429fee2f00318007a
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: flower_gray
-    400000: //RootNode
-    400002: flower_gray
-    2100000: flower_grayMat
-    2300000: flower_gray
-    3300000: flower_gray
-    4300000: flower_gray
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2100000: defaultMat
+    2100002: Roof_Black
+    2100004: Red_Chasis
+    2100006: really_Black
+    2100008: Metalic
+    2100010: red_light
+    2100012: glass
+    2100014: grey
+    2100016: black
+    2100018: tire
+    2300000: default
+    3300000: default
+    4300000: default
   externalObjects: {}
   materials:
     importMaterials: 1
