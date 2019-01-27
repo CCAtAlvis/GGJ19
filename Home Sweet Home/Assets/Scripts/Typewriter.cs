@@ -2,20 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Memories : MonoBehaviour
-{
-    public float memoryTimer;
-    public float fadeRate;
-    public Image image;
-    public PPSVignette vg;
-    public Region region;
-    public CharacterMovement player;
-
-    private float targetAlpha;
-
-    public Image photo;
-
+public class Typewriter : MonoBehaviour {
     public Text textBox;
+    public Image[] photos;
     private bool done = false;
     string[] VidGame = new string[] {
         /*Video Game Store*/
@@ -32,7 +21,7 @@ public class Memories : MonoBehaviour
 "Ever since these guys have started bullying me again..."
 };
 
-    string[] bakery = new string[] {
+string[] bakery = new string[] {
 /*Bakery*/
 
 "Haa smells real good",
@@ -112,66 +101,15 @@ public class Memories : MonoBehaviour
     string[] goatText;
 
     int currentlyDisplayingText = 0, time = 0;
-
-    public void Update()
+    void Awake()
     {
-        if (Input.GetKeyDown("space"))
-            SkipToNextText();
-    }
-
-    public void FadeOut()
-    {
-        //Debug.Log("image fade out");
-        targetAlpha = 0.0f;
-        StartCoroutine(Anim(1));
-    }
-
-    public void FadeIn()
-    {
-        //Debug.Log("image fade in");
-        targetAlpha = 1.0f;
-        StartCoroutine(Anim());
-    }
-
-    IEnumerator Anim(int a = 0)
-    {
-        Color currentColor = image.color;
-        float alphaDiff = Mathf.Abs(currentColor.a - targetAlpha);
-
-        while (alphaDiff > 0.01f)
-        {
-            currentColor.a = Mathf.Lerp(currentColor.a, targetAlpha, fadeRate * Time.deltaTime);
-            image.color = currentColor;
-
-            currentColor = image.color;
-            alphaDiff = Mathf.Abs(currentColor.a - targetAlpha);
-
-            if (alphaDiff < 0.01f)
-            {
-                if (a==0)
-                {
-                    PlayMemory();
-                    currentColor.a = 1f;
-                }
-                else
-                {
-                    currentColor.a = 0;
-                    image.enabled = false;
-                }
-
-                image.color = currentColor;
-                yield break;
-            }
-
-            yield return null;
-        }
-    }
-
-    private void PlayMemory()
-    {
-        
         StartCoroutine(AnimateText());
-        Invoke("Exit", 2f);
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown("space"))
+        SkipToNextText();
     }
     public void SkipToNextText()
     {
@@ -181,10 +119,9 @@ public class Memories : MonoBehaviour
         {
             done = true;
         }
-        if (!done)
-            StartCoroutine(AnimateText());
+        if(!done)
+        StartCoroutine(AnimateText());
     }
-
     IEnumerator AnimateText()
     {
 
@@ -193,14 +130,5 @@ public class Memories : MonoBehaviour
             textBox.text = goatText[currentlyDisplayingText].Substring(0, i);
             yield return new WaitForSeconds(.05f);
         }
-    }
-
-    private void Exit()
-    {
-        //Debug.Log("exiting memory");
-        FadeOut();
-        region.isGrayScale = false;
-        region.Colorify();
-        player.disableMovement = false;
     }
 }
