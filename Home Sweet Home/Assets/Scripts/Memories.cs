@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Memories : MonoBehaviour
 {
+    public int memoryNo=0;
     public float memoryTimer;
     public float fadeRate;
     public Image image;
@@ -15,7 +16,7 @@ public class Memories : MonoBehaviour
 
     public Text textBox;
     private bool done = false;
-    string[] goatText = new string[] {
+    string[] vidGame = new string[] {
         /*Video Game Store*/
 "Wow! The new game cup head is here!",
         "I have wanted to play this since so long!",
@@ -108,7 +109,8 @@ public class Memories : MonoBehaviour
 "And.. Next day this cycle was standing at the door",
 "I felt very happy"
 };
-//    string[] goatText ;
+
+    string[] goatText;
 
     int currentlyDisplayingText = 0, time = 0;
 
@@ -168,9 +170,31 @@ public class Memories : MonoBehaviour
 
     private void PlayMemory()
     {
-        
+        switch (memoryNo)
+        {
+            case 0:
+                goatText = (string[])vidGame.Clone();
+                break;
+            case 1:
+                goatText = (string[])hotel.Clone();
+                break;
+            case 2:
+                goatText = (string[])hospital.Clone();
+                break;
+            case 3:
+                goatText = (string[])bakery.Clone();
+                break;
+            case 4:
+                goatText = (string[])park.Clone();
+                break;
+            case 5:
+                goatText = (string[])bicycle.Clone();
+                break;
+        }
+
+
         StartCoroutine(AnimateText());
-        Invoke("Exit", memoryTimer);
+        //Invoke("Exit", memoryTimer);
     }
     public void SkipToNextText()
     {
@@ -194,9 +218,14 @@ public class Memories : MonoBehaviour
         }
 
         currentlyDisplayingText++;
-        if (currentlyDisplayingText >= goatText.Length)
+        if (currentlyDisplayingText < goatText.Length)
         {
-            done = true;
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(AnimateText());
+        }
+        else
+        {
+            Exit();
             yield break;
         }
     }

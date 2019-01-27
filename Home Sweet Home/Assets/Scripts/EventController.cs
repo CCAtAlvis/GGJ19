@@ -2,7 +2,6 @@
 
 public class EventController : MonoBehaviour
 {
-    public int eventNo;
     public PPSGrayscaling gs;
     public PPSVignette vg;
 
